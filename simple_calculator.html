@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <script>
+        function onclickbutton(event){
+           var inputElement =  document.getElementById("inputBox");
+           inputElement.value += event.target.innerText;
+        }
+
+        function cleanup(){
+           var inputElement =  document.getElementById("inputBox");
+           inputElement.value = "";
+        }
+        function calculate(){
+            var inputElement = document.getElementById("inputBox");
+            try{
+                inputElement.value = eval(inputElement.value);
+            } catch {
+                inputElement.value = "Error";
+            }
+        }
+        function backspace(){
+            var inputElement = document.getElementById("inputBox");
+            inputElement.value = inputElement.value.slice(0, -1);
+        }
+
+    </script>
+
+<style>
+    body{
+    background: #73738a;
+    font-family: Arial;
+}
+
+div{
+    width: 230px;
+    margin: 80px auto;
+    text-align: center;
+    padding: 15px;
+    border-radius: 15px;
+    background: #2c2c3e;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+h1{
+    color: rgb(65, 174, 116);
+}
+
+#inputBox{
+    width: 90%;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 10px;
+    font-size: 18px;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.buttons{
+    height: 40px; 
+    width: 45px;
+    margin: 3px;
+    border-radius: 10px;
+    border: none;
+    background: #575a3a;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.buttons:hover{
+    background: #3a485a;
+}
+
+.buttons:active{
+    transform: scale(0.9);
+}
+
+.clear{
+    background: #df1212;
+}
+
+.equal{
+    background: #00cc66;
+}
+</style>
+    
+</head>    
+<body>
+    <div>
+    <h1>Calculator</h1>
+    <input id="inputBox" type="text">   <br> <br>
+    <button class="buttons" onclick="onclickbutton(event)">1</button>
+    <button class="buttons" onclick="onclickbutton(event)">2</button>
+    <button class="buttons" onclick="onclickbutton(event)">3</button>
+    <button class="buttons" onclick="onclickbutton(event)">+</button>  <br>  
+    <button class="buttons" onclick="onclickbutton(event)">4</button>
+    <button class="buttons" onclick="onclickbutton(event)">5</button>
+    <button class="buttons" onclick="onclickbutton(event)">6</button>
+    <button class="buttons" onclick="onclickbutton(event)">-</button>  <br>
+    <button class="buttons" onclick="onclickbutton(event)">7</button>
+    <button class="buttons" onclick="onclickbutton(event)">8</button>
+    <button class="buttons" onclick="onclickbutton(event)">9</button>
+    <button class="buttons clear" onclick="cleanup()">C</button> <br>
+    <button class="buttons" onclick="onclickbutton(event)">*</button> 
+    <button class="buttons" onclick="onclickbutton(event)">0</button>
+    <button class="buttons" onclick="onclickbutton(event)">/</button>
+    <button class="buttons equal" onclick="calculate()">=</button> 
+    <button class="buttons " onclick="backspace()">⌫</button>
+    </div>
+
+    <p style="color: azure;"><i> © Developed by</i> @Lakshmikant.kumar</p>
+</body>   
+</html>
